@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+print("BT에 체온, cough에 기침여부, LAD에 림프절종대여부, exudate에 삼출물여부, tonsil에 편도비대여부, age에 연령을 입력하시오.")
+BT=input("BT에 체온을 입력하시오.",)
+BT=float(BT)
+cough=input()
+"boolean형으로 typecasting하기"
+LAD=input()
+"boolean형으로 typecasting하기"
+exudate=input()
+"boolean형으로 typecasting하기"
+tonsil=input()
+"boolean형으로 typecasting하기"
+age=input()
+age=int(age)
+
+
+centor=0 'centor변수 선언 및 초기값 0'
+str output '최종 출력 결과물 str형으로 선언'
+
+'이하 알고리즘 시작'
+centor=if(BT>38,1,0)+if(cough==FALSE,1,0)+if(LAD==TRUE,1,0)+if(if(exudate==TRUE,TRUE,FALSE)&if(tonsill==TRUE,TRUE,FALSE),1,0)
+
+if(age>=3&&age<=14) centor=centor+1
+elif(age>44) centor=centor-1
+
+if(centor>=3) if()
+
+else output="Symptomatic Tx"
+
+print(output)
+
+if
+while True:
+    Age=int(input("나이를 입력해주세요. 종료하시려면 0을 입력해주세요."))
+    Temp=float(input("체온을 입력해주세요. 종료하시려면 0을 입력해주세요."))
+    Cough=int(input("기침이 있으시면 1, 없으면 0을 입력해주세요. 종료하시려면 0을 입력해주세요."))
+    Exudate=int(input("편도 삼출물 또는 편도 비대가 있으면 1, 없으면 0을 입력해주세요. 종료하시려면 0을 입력해주세요."))
+    LAD=int(input("전방 경부 림프절 비대가 있으면 1, 없으면 0을 입력해주세요. 종료하시려면 0을 입력해주세요."))
+    centor=0
+    output=0
+
+    centor=if(Age>=45,-1,(if(Age>=15,0,1)))+if(Temp>38,1,0)+if(Cough==1,0,1)+if(Exudate==1,1,0)+if(LAD==1,1,0)
+    if(centor>=4):
+        print("항생제 사용이 필요합니다.")
+    else if(centor>=2):
+        print("Rapid test 양성인 경우 항생제 사용이 필요합니다.")
+    else:
+        print("항생제 사용을 권장하지 않습니다.")
+
+complication=int(input("합병증이 있습니까? 있으면 1, 없으면 0을 입력해 주세요."))
+    if complication==1:
+        print("항생제 사용을 권장합니다.")
+
+while True:
+    Age=int(input("나이를 입력해주세요. 종료하시려면 9를 입력해주세요."))
+    if(Age<3):
+        print("Centor Criteria는 나이 3세 이상에 적합한 가이드입니다.")
+        Age=int(input("나이를 입력해주세요. 종료하시려면 9를 입력해주세요."))
+    Temp=float(input("체온을 입력해주세요. 종료하시려면 9를 입력해주세요."))
+    Cough=int(input("기침이 있으시면 1, 없으면 0을 입력해주세요. 종료하시려면 9를 입력해주세요."))
+    Exudate=int(input("편도 삼출물 또는 편도 비대가 있으면 1, 없으면 0을 입력해주세요. 종료하시려면 9를 입력해주세요."))
+    LAD=int(input("전방 경부 림프절 비대가 있으면 1, 없으면 0을 입력해주세요. 종료하시려면 9를 입력해주세요."))
+    centor=0
+    output=0
+
+    Rapidtest=int(input("Rapid test가 가능한 환경이면 1, 그렇지 않으면 0을 입력해주세요. 종료하시려면 9를 입력해주세요."))
+
+    if(Age==9 or Temp==9 or Cough==9 or Exudate==9 or LAD==9):
+        break
+
+    if(Age>=45):
+        centor_Age=-1
+    elif(Age>=15):
+        centor_Age=0
+    else:
+        centor_Age=1
+
+    if(Temp>38.0):
+        centor_Temp=1
+    else:
+        centor_Temp=0
+
+    if(Cough==1):
+        centor_Cough=0
+    else:
+        centor_Cough=1
+
+    if(Exudate==1):
+        centor_Exudate=1
+    else:
+        centor_Exudate=0
+
+    if(LAD==1):
+        centor_LAD=1
+    else:
+        centor_LAD=0
+
+    centor=centor_Age + centor_Temp + centor_Cough + centor_Exudate + centor_LAD
+
+    if(centor>=3):
+        if(Rapidtest==1):
+            print("Rapid test 양성인 경우 항생제 사용을 권장합니다. 음성인 경우는 대증요법을 권장합니다.")
+        else:
+            print("항생제 치료를 권장합니다.")
+    else:
+        print("대증요법을 권장합니다.")
+</body>
+</html>
